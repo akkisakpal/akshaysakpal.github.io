@@ -100,13 +100,21 @@
       transform: translateY(-1px);
     }
 
-    .hero-image img {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 16px;
-      object-fit: cover;
-      filter: grayscale(100%);
-      transition: all 0.4s ease;
+    .hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  display: block;                 /* 🔑 critical */
+  width: 240px;                   /* 🔑 fixed size */
+  height: 240px;                  /* 🔑 fixed size */
+  border-radius: 16px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
     }
 
     .hero-image img:hover {
