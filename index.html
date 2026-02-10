@@ -1,250 +1,254 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <title>Akshay Sakpal | Data Analyst</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Akshay Sakpal | Data Analyst & Junior Data Scientist" />
+<meta charset="UTF-8">
+<title>Akshay Sakpal | Data Analyst</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Akshay Sakpal – Data Analyst & Junior Data Scientist focused on patterns, systems, and clarity.">
 
-  <style>
-    /* =====================
-       THEME
-    ===================== */
-    :root {
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-      --card: #f8fafc;
-      --shadow: rgba(0,0,0,0.08);
-    }
+<style>
+/* =====================
+   THEME
+===================== */
+:root {
+  --bg:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --accent:#2563eb;
+  --border:#e5e7eb;
+  --card:#f8fafc;
+  --shadow:rgba(0,0,0,.08);
+}
 
-    [data-theme="dark"] {
-      --bg: #020617;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --border: #1e293b;
-      --card: #020617;
-      --shadow: rgba(0,0,0,0.45);
-    }
+[data-theme="dark"] {
+  --bg:#020617;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:#1e293b;
+  --card:#020617;
+  --shadow:rgba(0,0,0,.45);
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Inter, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      transition: background 0.4s ease, color 0.4s ease;
-      overflow-x: hidden;
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  transition:background .4s,color .4s;
+  overflow-x:hidden;
+}
 
-    /* =====================
-       PREMIUM BACKGROUND
-    ===================== */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(700px 500px at 80% -10%, rgba(37,99,235,0.10), transparent 60%),
-        radial-gradient(600px 400px at -10% 30%, rgba(99,102,241,0.08), transparent 60%);
-      z-index: -2;
-      transform: translateY(0);
-    }
+/* =====================
+   PREMIUM BACKGROUND
+===================== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(800px 500px at 80% -10%, rgba(37,99,235,.10), transparent 60%),
+    radial-gradient(700px 400px at -10% 30%, rgba(99,102,241,.08), transparent 60%);
+  z-index:-2;
+  transform:translateY(var(--bg-shift,0px));
+}
 
-    /* Spotlight */
-    .spotlight {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(
-        700px at var(--x) var(--y),
-        rgba(255,255,255,0.04),
-        transparent 60%
-      );
-      z-index: -1;
-      opacity: 0;
-    }
+/* Spotlight */
+.spotlight{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(700px at var(--x) var(--y), rgba(255,255,255,.04), transparent 60%);
+  z-index:-1;
+  opacity:0;
+}
+@media (hover:hover){.spotlight{opacity:1}}
 
-    @media (hover: hover) {
-      .spotlight { opacity: 1; }
-    }
+/* =====================
+   LAYOUT
+===================== */
+.container{
+  max-width:980px;
+  margin:auto;
+  padding:110px 24px;
+}
 
-    /* =====================
-       LAYOUT
-    ===================== */
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 96px 24px;
-    }
+h1{
+  font-size:clamp(2.8rem,4vw,3.4rem);
+  font-weight:500;
+  letter-spacing:-.02em;
+  margin-bottom:18px;
+}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+h2{
+  margin-top:130px;
+  margin-bottom:22px;
+  font-size:1.55rem;
+  font-weight:500;
+}
 
-    h1 {
-      font-size: clamp(2.6rem, 4vw, 3.2rem);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
+p{max-width:65ch;margin-bottom:1.4em}
 
-    h2 {
-      margin-top: 120px;
-      margin-bottom: 20px;
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
+a{color:var(--accent);text-decoration:none}
 
-    p {
-      max-width: 65ch;
-      margin-bottom: 1.4em;
-    }
+/* =====================
+   DARK MODE TOGGLE
+===================== */
+.toggle{
+  position:fixed;
+  top:24px;
+  right:24px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:none;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  font-size:1.2rem;
+  cursor:pointer;
+  box-shadow:0 14px 36px rgba(37,99,235,.45);
+  transition:all .35s ease;
+  z-index:999;
+}
+.toggle:hover{transform:scale(1.1) rotate(10deg)}
 
-    /* =====================
-       DARK MODE TOGGLE
-    ===================== */
-    .toggle {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: #ffffff;
-      font-size: 1.25rem;
-      cursor: pointer;
-      box-shadow: 0 12px 32px rgba(37,99,235,0.45);
-      transition: all 0.3s ease;
-      z-index: 999;
-    }
+/* =====================
+   HERO
+===================== */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:70px;
+  align-items:center;
+  margin-bottom:150px;
+}
 
-    .toggle:hover {
-      transform: scale(1.08) rotate(10deg);
-    }
+.hero-text>*{
+  opacity:0;
+  transform:translateY(20px);
+  animation:rise .9s ease forwards;
+}
+.hero-text h1{animation-delay:.1s}
+.hero-text .subtitle{animation-delay:.25s}
+.hero-text .actions{animation-delay:.4s}
 
-    /* =====================
-       HERO
-    ===================== */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 64px;
-      align-items: center;
-      margin-bottom: 140px;
-    }
+@keyframes rise{
+  to{opacity:1;transform:none}
+}
 
-    .hero-text > * {
-      opacity: 0;
-      transform: translateY(18px);
-      animation: rise 0.8s ease forwards;
-    }
+.subtitle{
+  color:var(--muted);
+  font-size:1.1rem;
+  max-width:520px;
+  margin-bottom:38px;
+}
 
-    .hero-text h1 { animation-delay: 0.1s; }
-    .hero-text .subtitle { animation-delay: 0.25s; }
-    .hero-text .actions { animation-delay: 0.4s; }
+/* Name underline */
+.hero-text h1 span{
+  position:relative;
+}
+.hero-text h1 span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:2px;
+  background:linear-gradient(to right,var(--accent),transparent);
+  opacity:.6;
+}
 
-    @keyframes rise {
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Actions */
+.actions a{
+  display:inline-block;
+  padding:11px 22px;
+  margin-right:12px;
+  margin-top:12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  font-size:.95rem;
+  transition:all .25s ease;
+  color:inherit;
+}
+.actions a:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+  transform:translateY(-2px);
+}
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 520px;
-      margin-bottom: 36px;
-    }
+/* Portrait */
+.portrait img{
+  width:240px;
+  height:240px;
+  border-radius:18px;
+  object-fit:cover;
+  filter:grayscale(60%);
+  box-shadow:0 24px 54px var(--shadow);
+  transition:filter .4s,transform .4s;
+}
+.portrait img:hover{
+  filter:grayscale(40%);
+  transform:translateY(-6px);
+}
 
-    .actions a {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-right: 12px;
-      margin-top: 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      font-size: 0.95rem;
-      transition: all 0.25s ease;
-      color: inherit;
-    }
+/* =====================
+   HIGHLIGHTS
+===================== */
+.highlights{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:28px;
+  margin-top:40px;
+}
+.highlight{
+  padding:22px;
+  border-radius:14px;
+  background:var(--card);
+  border:1px solid var(--border);
+}
 
-    .actions a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
+/* =====================
+   PROJECTS
+===================== */
+.project{
+  display:block;
+  padding:28px;
+  margin-top:34px;
+  border-radius:16px;
+  background:var(--card);
+  border:1px solid var(--border);
+  transition:all .4s ease;
+  color:inherit;
+  perspective:800px;
+}
+.project:hover{
+  transform:translateY(-6px) rotateX(1deg);
+  box-shadow:0 22px 56px var(--shadow);
+}
 
-    .portrait img {
-      width: 240px;
-      height: 240px;
-      border-radius: 18px;
-      object-fit: cover;
-      filter: grayscale(40%);
-      box-shadow: 0 22px 48px var(--shadow);
-    }
+/* =====================
+   CONTACT
+===================== */
+.contact{
+  margin-top:130px;
+  padding-top:34px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
+.contact a:hover{text-decoration:underline;text-underline-offset:4px}
 
-    /* =====================
-       PROJECTS
-    ===================== */
-    .project {
-      display: block;
-      padding: 26px;
-      margin-top: 32px;
-      border-radius: 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      transition: all 0.35s ease;
-      color: inherit;
-    }
-
-    .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 48px var(--shadow);
-    }
-
-    /* =====================
-       CONTACT
-    ===================== */
-    .contact {
-      margin-top: 120px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* =====================
-       MOBILE
-    ===================== */
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .portrait {
-        order: -1;
-      }
-
-      .portrait img {
-        width: 180px;
-        height: 180px;
-      }
-
-      .spotlight { display: none; }
-    }
-  </style>
+/* =====================
+   MOBILE
+===================== */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;gap:52px}
+  .portrait{order:-1}
+  .portrait img{width:180px;height:180px}
+  .spotlight{display:none}
+}
+</style>
 </head>
 
 <body>
@@ -254,84 +258,89 @@
 
 <div class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Akshay Sakpal</h1>
-      <p class="subtitle">
-        Data Analyst & Junior Data Scientist focused on signals,
-        patterns, and clarity.
-      </p>
-
-      <div class="actions">
-        <a href="./Akshay_Sakpal_CV.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a href="#projects">Projects</a>
-        <a href="https://github.com/akkisakpal" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/akshaysakpal07/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-
-    <div class="portrait">
-      <img src="portrait.jpeg" alt="Akshay Sakpal portrait">
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <h2>About</h2>
-  <p>
-    I’m a Data Analytics graduate from Dublin City University with hands-on experience in Python,
-    SQL, and applied machine learning. I enjoy turning messy, real-world data into structured insights.
-  </p>
-  <p>
-    My work spans anomaly detection, exploratory analysis, and building reliable data pipelines.
-    I’m particularly interested in understanding system behaviour through data.
-  </p>
-
-  <!-- PROJECTS -->
-  <h2 id="projects">Projects</h2>
-
-  <a class="project" href="projects/memory-leak.html">
-    <strong>Multivariate Anomaly Detection for Memory Leak Identification</strong><br>
-    Detecting abnormal JVM memory behaviour using LSTM-based time-series models.
-  </a>
-
-  <a class="project" href="projects/etl-pipeline.html">
-    <strong>End-to-End ETL Pipeline with Data Validation</strong><br>
-    Python-based ETL workflow with cleaning, validation, logging, and failure handling.
-  </a>
-
-  <a class="project" href="projects/eda.html">
-    <strong>Exploratory Data Analysis & Visualization Portfolio</strong><br>
-    Feature engineering, statistical summaries, and data storytelling.
-  </a>
-
-  <!-- CONTACT -->
-  <div class="contact">
-    <p>
-      📧 <a href="mailto:akki.sakpal@gmail.com">akki.sakpal@gmail.com</a><br>
-      💼 <a href="https://www.linkedin.com/in/akshaysakpal07/" target="_blank" rel="noopener">LinkedIn</a><br>
-      🧠 <a href="https://github.com/akkisakpal" target="_blank" rel="noopener">GitHub</a>
+<section class="hero">
+  <div class="hero-text">
+    <h1><span>Akshay Sakpal</span></h1>
+    <p class="subtitle">
+      Data Analyst & Junior Data Scientist focused on patterns,
+      systems, and clarity.
     </p>
+
+    <div class="actions">
+      <a href="./Akshay_Sakpal_CV.pdf" target="_blank">Download CV</a>
+      <a href="#projects">Projects</a>
+      <a href="https://github.com/akkisakpal" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/akshaysakpal07/" target="_blank">LinkedIn</a>
+    </div>
   </div>
+
+  <div class="portrait">
+    <img src="portrait.jpeg" alt="Akshay Sakpal portrait">
+  </div>
+</section>
+
+<h2>Selected Highlights</h2>
+<div class="highlights">
+  <div class="highlight">Built anomaly detection systems on JVM metrics</div>
+  <div class="highlight">Strong Python, SQL & data pipeline foundations</div>
+  <div class="highlight">Focus on interpretable, real-world analytics</div>
+</div>
+
+<h2>How I Think</h2>
+<p>
+I approach data problems as systems — understanding inputs, behavior,
+constraints, and failure modes before choosing models.
+I value clarity over complexity and robustness over novelty.
+</p>
+
+<h2 id="projects">Projects</h2>
+
+<a class="project" href="projects/memory-leak.html">
+<strong>Multivariate Anomaly Detection for Memory Leaks</strong><br>
+Detecting abnormal JVM memory behavior using LSTM-based time-series models.
+</a>
+
+<a class="project" href="projects/etl-pipeline.html">
+<strong>End-to-End ETL Pipeline with Validation</strong><br>
+Python ETL workflow with cleaning, validation, logging, and failure handling.
+</a>
+
+<a class="project" href="projects/eda.html">
+<strong>Exploratory Data Analysis Portfolio</strong><br>
+Statistical analysis, feature engineering, and data storytelling.
+</a>
+
+<div class="contact">
+<p>
+📧 <a href="mailto:akki.sakpal@gmail.com">akki.sakpal@gmail.com</a><br>
+💼 <a href="https://www.linkedin.com/in/akshaysakpal07/" target="_blank">LinkedIn</a><br>
+🧠 <a href="https://github.com/akkisakpal" target="_blank">GitHub</a>
+</p>
+</div>
 
 </div>
 
 <script>
-  /* Dark mode toggle */
-  const toggle = document.getElementById("themeToggle");
-  toggle.onclick = () => {
-    const html = document.documentElement;
-    const dark = html.getAttribute("data-theme") === "dark";
-    html.setAttribute("data-theme", dark ? "light" : "dark");
-    toggle.textContent = dark ? "💡" : "☀️";
-  };
+/* Dark mode */
+const toggle=document.getElementById("themeToggle");
+toggle.onclick=()=>{
+  const html=document.documentElement;
+  const dark=html.getAttribute("data-theme")==="dark";
+  html.setAttribute("data-theme",dark?"light":"dark");
+  toggle.textContent=dark?"💡":"☀️";
+};
 
-  /* Spotlight follow */
-  const spotlight = document.querySelector(".spotlight");
-  window.addEventListener("mousemove", e => {
-    spotlight.style.setProperty("--x", e.clientX + "px");
-    spotlight.style.setProperty("--y", e.clientY + "px");
-  });
+/* Spotlight */
+const s=document.querySelector(".spotlight");
+window.addEventListener("mousemove",e=>{
+  s.style.setProperty("--x",e.clientX+"px");
+  s.style.setProperty("--y",e.clientY+"px");
+});
+
+/* Background parallax */
+window.addEventListener("scroll",()=>{
+  document.body.style.setProperty("--bg-shift",window.scrollY*0.08+"px");
+});
 </script>
 
 </body>
